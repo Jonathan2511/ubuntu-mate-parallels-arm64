@@ -41,7 +41,6 @@ This guide will walk you through the process of installing the Ubuntu MATE ARM64
     print
     set 1 boot on
     set 1 esp on
-    set 1 lba on
     quit
     ```
 
@@ -56,7 +55,7 @@ This guide will walk you through the process of installing the Ubuntu MATE ARM64
     ```
 3. Mount the FAT32 partition to the `/boot/efi` folder:
     ```bash
-    sudo mount /dev/sda1 /mnt/boot/efi
+    sudo mount -o umask=0077 /dev/sda1 /mnt/boot/efi
     ```
 
 ### 8. Bind the Mounted Filesystems
@@ -65,6 +64,7 @@ This guide will walk you through the process of installing the Ubuntu MATE ARM64
     sudo mount --bind /dev /mnt/dev
     sudo mount --bind /proc /mnt/proc
     sudo mount --rbind /sys /mnt/sys
+    sudo mount --bind /run /mnt/run
     ```
 
 ### 9. Chroot into the Mounted Partition
@@ -77,6 +77,7 @@ This guide will walk you through the process of installing the Ubuntu MATE ARM64
 1. Update package lists:
     ```bash
     apt update
+    apt upgrade
     ```
 2. Install GRUB and required packages:
     ```bash
@@ -139,8 +140,14 @@ This guide will walk you through the process of installing the Ubuntu MATE ARM64
     ```bash
     update-grub
     ```
-
-### 15. Exit Chroot and Reboot
+    
+### 15. Check the Filesystem Before Reboot
+1. Run a filesystem check on the `/dev/sda1` partition:
+    ```bash
+    fsck /dev/sda1
+    ```
+    
+### 16. Exit Chroot and Reboot
 1. Exit the chroot environment:
     ```bash
     exit
@@ -150,7 +157,7 @@ This guide will walk you through the process of installing the Ubuntu MATE ARM64
     reboot
     ```
 
-### 16. Boot into the Non-Raspberry Pi Kernel
+### 17. Boot into the Non-Raspberry Pi Kernel
 1. After reboot, choose the **non-Raspberry Pi kernel** from the GRUB menu.
 2. You have successfully installed Ubuntu MATE ARM64 on Parallels.
 3. Update the system and install Parallels Tools
