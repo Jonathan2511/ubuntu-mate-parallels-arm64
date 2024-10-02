@@ -131,7 +131,8 @@ This guide will walk you through the process of installing the Ubuntu MATE ARM64
     ```
 2. Set the GRUB menu to show with a timeout:
     ```bash
-    GRUB_TIMEOUT=5
+    GRUB_TIMEOUT_STYLE=menu
+    GRUB_TIMEOUT=n
     ```
 
 3. Update GRUB:
