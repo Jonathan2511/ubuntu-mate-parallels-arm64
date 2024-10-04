@@ -187,3 +187,6 @@ This guide will walk you through the process of installing the Ubuntu MATE ARM64
 Your Ubuntu MATE arm64 installation should now be running on Parallels with Apple Silicon.
 <img width="1680" alt="image" src="https://github.com/user-attachments/assets/74eba064-c3b9-45fa-96f7-ddbd404ef34f">
 
+## Thanks and Credit
+Special thanks to [Yuizumi](https://dev.to/yuizumi) for their helpful guide on [Installing Manjaro on Parallels with Apple Silicon](https://dev.to/yuizumi/installing-manjaro-on-parallels-with-apple-silicon-e6k). This resource was invaluable in setting up my environment. 
+
