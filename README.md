@@ -3,6 +3,11 @@
 This guide will walk you through the process of installing the Ubuntu MATE ARM64 (aarch64) Raspberry Pi image to Parallels on Apple Silicon. 
 <img width="1680" alt="image" src="https://github.com/user-attachments/assets/1f2f692b-0871-4ba2-b629-9c427b7c7e16">
 
+## Overview
+I like Ubuntu, but it's heavy for Parallels, and GNOME has a bug with window tiling on my guest. So, I'm considering another version of Ubuntu with the MATE desktop environment. I've quite like the interface and customization of Ubuntu MATE, it’s ready to use and considerably "lightweight" compared to GNOME. However, it seems there are no ISO installer images available for ARM64 systems like those for Fedora, Ubuntu, or Kali. Instead, they only offer disk images for ARM64 Raspberry Pi on their website.
+
+After reading Yusuke Izumi's post on [DEV Community](https://dev.to/yuizumi/installing-manjaro-on-parallels-with-apple-silicon-e6k), I wondered if there might be a way to install the Ubuntu MATE Raspberry Pi image on Parallels. The issue is that Ubuntu MATE doesn’t provide generic or Generic EFI images like Manjaro does. I think I can set up the GRUB bootloader and install a generic Linux kernel for ARM64. By following Yusuke's steps on how to install Manjaro on Parallels, I learned that we can write the images directly to the virtual hard disk. What I need to do is find a way to make and install the bootloader work so that we can boot Ubuntu MATE successfully.
+
 ## Steps
 ### 1. Obtain Live ISO of Fedora Workstation for ARM64
 1. Open [Fedora Workstation](https://fedoraproject.org/workstation/download) on your browser.
